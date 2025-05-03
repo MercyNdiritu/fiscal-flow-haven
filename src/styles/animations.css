@@ -41,6 +41,18 @@
   }
 }
 
+/* Count-up animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Add these classes to be used with the AnimateOnScroll component */
 .animate-bounce-in {
   animation: bounceIn 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
@@ -48,4 +60,8 @@
 
 .animate-bounce-in-up {
   animation: bounceInUp 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.animate-count-up {
+  animation: countUp 0.5s ease-out forwards;
 }

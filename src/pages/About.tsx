@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Shield, Award, Users, TrendingUp } from 'lucide-react';
 import CTASection from '../components/CTASection';
+import AnimateOnScroll from '../components/AnimateOnScroll';
+import CountUp from '../components/CountUp';
 
 const About = () => {
   const team = [
@@ -130,31 +132,77 @@ const About = () => {
         </div>
         
         {/* Leadership Team */}
-        <div className="container-section">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-accounting-dark">Our Leadership Team</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Meet the experienced professionals who lead our company and ensure we deliver exceptional service to our clients.
-            </p>
+        <AnimateOnScroll variant="bounceIn" threshold={0.2}>
+          <div className="container-section">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4 text-accounting-dark">Our Leadership Team</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Meet the experienced professionals who lead our company and ensure we deliver exceptional service to our clients.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {team.map((member, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-1 text-accounting-800">{member.name}</h3>
+                    <p className="text-accounting-600 font-medium mb-3">{member.position}</p>
+                    <p className="text-gray-600">{member.bio}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1 text-accounting-800">{member.name}</h3>
-                  <p className="text-accounting-600 font-medium mb-3">{member.position}</p>
-                  <p className="text-gray-600">{member.bio}</p>
+        </AnimateOnScroll>
+        
+        {/* Stats Section with CountUp */}
+        <AnimateOnScroll variant="bounceIn" threshold={0.2}>
+          <div className="bg-accounting-100 py-16 mt-16">
+            <div className="container-section">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4 text-accounting-dark">Our Impact</h2>
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                  A track record of excellence in providing financial services and solutions.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+                  <h3 className="text-accounting-800 font-bold text-4xl">
+                    <CountUp end={15} suffix="+" />
+                  </h3>
+                  <p className="text-gray-600 mt-2">Years Experience</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+                  <h3 className="text-accounting-800 font-bold text-4xl">
+                    <CountUp end={500} suffix="+" duration={2500} />
+                  </h3>
+                  <p className="text-gray-600 mt-2">Satisfied Clients</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+                  <h3 className="text-accounting-800 font-bold text-4xl">
+                    <CountUp end={12} duration={1500} />
+                  </h3>
+                  <p className="text-gray-600 mt-2">Certified Experts</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+                  <h3 className="text-accounting-800 font-bold text-4xl">
+                    <CountUp end={98} suffix="%" duration={2200} />
+                  </h3>
+                  <p className="text-gray-600 mt-2">Client Retention</p>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
         
         {/* Credentials & Certifications */}
         <div className="bg-accounting-100 py-16 mt-16">

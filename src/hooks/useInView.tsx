@@ -5,13 +5,14 @@ type IntersectionOptions = {
   threshold?: number;
   rootMargin?: string;
   once?: boolean;
+  triggerOnce?: boolean;
 };
 
 export function useInView(
   ref: RefObject<Element>,
   options: IntersectionOptions = {}
 ): boolean {
-  const { threshold = 0.1, rootMargin = '0px', once = true } = options;
+  const { threshold = 0.1, rootMargin = '0px', once = true, triggerOnce = once } = options;
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -21,11 +22,11 @@ export function useInView(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
-          // If once is true, disconnect after element is in view
-          if (once) {
+          // If triggerOnce is true, disconnect after element is in view
+          if (triggerOnce) {
             observer.disconnect();
           }
-        } else if (!once) {
+        } else if (!triggerOnce) {
           setIsInView(false);
         }
       },
@@ -37,7 +38,7 @@ export function useInView(
     return () => {
       observer.disconnect();
     };
-  }, [ref, threshold, rootMargin, once]);
+  }, [ref, threshold, rootMargin, triggerOnce]);
 
   return isInView;
 }
