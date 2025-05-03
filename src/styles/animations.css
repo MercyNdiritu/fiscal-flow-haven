@@ -1,0 +1,51 @@
+
+/* Animation keyframes for bounce animations */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -10px, 0);
+  }
+  80% {
+    transform: translate3d(0, 5px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Add these classes to be used with the AnimateOnScroll component */
+.animate-bounce-in {
+  animation: bounceIn 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.animate-bounce-in-up {
+  animation: bounceInUp 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}

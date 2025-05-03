@@ -9,6 +9,7 @@ import ResourcesSection from '../components/ResourcesSection';
 import ContactSection from '../components/ContactSection';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import AnimateOnScroll from '../components/AnimateOnScroll';
 
 const Home = () => {
   return (
@@ -16,12 +17,30 @@ const Home = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <TestimonialsSection />
-        <ResourcesSection />
-        <ContactSection />
-        <CTASection />
+        
+        <AnimateOnScroll variant="bounceIn" threshold={0.2}>
+          <AboutSection />
+        </AnimateOnScroll>
+        
+        <AnimateOnScroll variant="fadeInUp" delay={0.2}>
+          <ServicesSection />
+        </AnimateOnScroll>
+        
+        <AnimateOnScroll variant="bounceInUp" threshold={0.1}>
+          <TestimonialsSection />
+        </AnimateOnScroll>
+        
+        <AnimateOnScroll variant="fadeInUp" delay={0.1}>
+          <ResourcesSection />
+        </AnimateOnScroll>
+        
+        <AnimateOnScroll variant="slideInRight">
+          <ContactSection />
+        </AnimateOnScroll>
+        
+        <AnimateOnScroll variant="bounceIn" threshold={0.3}>
+          <CTASection />
+        </AnimateOnScroll>
       </main>
       <Footer />
     </div>
