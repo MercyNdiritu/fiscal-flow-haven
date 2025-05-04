@@ -57,7 +57,7 @@ const ServicesSection = () => {
             <div 
               key={service.id} 
               id={service.id}
-              className="service-card flex flex-col h-full"
+              className="service-card flex flex-col h-full service-card-hover"
             >
               <div className="mb-4">{service.icon}</div>
               <h3 className="text-xl font-bold mb-3 text-accounting-800">{service.title}</h3>

@@ -65,3 +65,26 @@
 .animate-count-up {
   animation: countUp 0.5s ease-out forwards;
 }
+
+/* Service Card Hover Animation */
+.service-card {
+  background-color: #EAF6FF;
+  transition: background 15s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card-hover:hover {
+  background: linear-gradient(90deg, #00499E, #0075ba);
+  color: white;
+}
+
+.service-card-hover:hover h3,
+.service-card-hover:hover p,
+.service-card-hover:hover span,
+.service-card-hover:hover a {
+  color: white;
+}
+
+.service-card-hover:hover svg {
+  color: white;
+}
+
